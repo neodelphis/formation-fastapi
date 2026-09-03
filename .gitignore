@@ -66,5 +66,5 @@ ipython_config.py
 # (Optionnel) Si vous utilisez Jupytext pour ne versionner que les scripts (.py ou .md)
 # et que vous générez les notebooks localement, vous pouvez décommenter la ligne suivante
 # pour ignorer tous les fichiers .ipynb
-*.ipynb
+# *.ipynb
 
