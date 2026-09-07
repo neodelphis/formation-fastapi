@@ -1,0 +1,164 @@
+# 🛠️ Guide d'Installation et Configuration de l'Environnement (Version Conda)
+
+Ce document vous guide pas à pas pour installer et configurer un environnement de développement Python professionnel en utilisant **Conda**.
+
+---
+
+## 📌 1. Prérequis Systèmes
+
+Vérifiez que vous disposez des éléments suivants sur votre machine :
+
+* **Miniconda** ou **Anaconda** (pour la gestion des environnements et paquets).
+* **Git**
+* **VS Code** (ou un IDE Python de votre choix).
+* **Docker Desktop** (recommandé pour PostgreSQL) ou un installateur local PostgreSQL.
+
+---
+
+## 🐍 2. Vérification de Conda
+
+Ouvrez votre terminal (Anaconda Prompt sur Windows, Terminal sur macOS/Linux) et vérifiez que Conda est bien installé :
+
+```bash
+conda --version
+
+```
+
+> ⚠️ **Important** : Si la commande n'est pas reconnue, téléchargez et installez [Miniconda](https://docs.conda.io/en/latest/miniconda.html) (plus léger) ou Anaconda.
+
+---
+
+## 💻 3. Configuration de l'IDE (VS Code)
+
+Installez les extensions suivantes depuis l'onglet Extensions (`Ctrl+Shift+X` ou `Cmd+Shift+X`) :
+
+1. **Python** (Microsoft) — Support complet du langage (permet de sélectionner l'interpréteur Conda).
+2. **Pylance** (Microsoft) — Analyse statique et auto-complétion intelligente.
+3. **SQLite Viewer** (Florian Kleinecke) — Visualisation rapide des bases locales.
+4. **Thunder Client** ou **REST Client** — Pour tester vos endpoints d'API.
+5. **Ruff** (Charliermarsh) — Linter et formateur de code hyper rapide.
+
+---
+
+## 📦 4. Initialisation du Projet & Environnement Conda
+
+### Étape 4.1 : Structure initiale des dossiers
+
+Créez votre dossier de projet et l'arborescence recommandée :
+
+```bash
+mkdir escape_engine_api
+cd escape_engine_api
+mkdir -p app/core app/models app/schemas app/routers app/services scripts cli tests data
+
+```
+
+### Étape 4.2 : Fichier `.gitignore`
+
+Créez un fichier `.gitignore` à la racine pour éviter de pousser vos fichiers locaux et secrets sur Git :
+
+```text
+__pycache__/
+*.pyc
+.env
+.pytest_cache/
+*.db
+*.log
+.gm_session
+
+```
+
+---
+
+## ⚡ 5. Création de l'Environnement et Installation des Dépendances
+
+La méthode standard avec Conda est d'utiliser un fichier `environment.yml`. Créez ce fichier à la racine de votre projet :
+
+```yaml
+name: escape_engine
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python>=3.11
+  - fastapi>=0.110.0
+  - uvicorn>=0.28.0
+  - pydantic>=2.6.0
+  - pydantic-settings>=2.2.0
+  - sqlalchemy>=2.0.28
+  - alembic>=1.13.1
+  - psycopg2>=2.9.9
+  - asyncpg>=0.29.0
+  - passlib>=1.7.4
+  - bcrypt
+  - python-jose>=3.3.0
+  - cryptography
+  - httpx>=0.27.0
+  - pytest>=8.0.0
+  - pytest-asyncio>=0.23.5
+
+```
+
+Créez et activez l'environnement Conda à partir de ce fichier :
+
+```bash
+# Création de l'environnement (télécharge et installe les paquets)
+conda env create -f environment.yml
+
+# Activation de l'environnement
+conda activate escape_engine
+
+```
+
+> 💡 **Astuce VS Code** : Appuyez sur `Ctrl+Shift+P` (ou `Cmd+Shift+P`), tapez **Python: Select Interpreter**, et choisissez l'environnement Conda `escape_engine` fraîchement créé.
+
+---
+
+## 🔑 6. Variables d'Environnement (`.env`)
+
+Créez un fichier `.env` à la racine de votre projet :
+
+```env
+# Configuration de l'Application
+APP_NAME="EscapeEngine API"
+ENVIRONMENT="development"
+DEBUG=True
+
+# Base de Données PostgreSQL
+# DATABASE_URL="postgresql://escape_admin:escape_secret@localhost:5432/escape_engine_db"
+
+# Sécurité & JWT
+# SECRET_KEY="votre_cle_secrete_hyper_securisee_a_changer_absolument"
+# ALGORITHM="HS256"
+# ACCESS_TOKEN_EXPIRE_MINUTES=60
+
+```
+
+---
+
+## ✅ 7. Test de Validation de l'Environnement
+
+Créez un fichier `app/main.py` de test minimal :
+
+```python
+from fastapi import FastAPI
+
+app = FastAPI(title="EscapeEngine API Test")
+
+@app.get("/")
+def read_root():
+    return {"status": "ok", "message": "Environnement Conda prêt pour l'Escape Game !"}
+
+```
+
+Lancez le serveur de développement Uvicorn (assurez-vous que l'environnement `escape_engine` est activé) :
+
+```bash
+uvicorn app.main:app --reload
+
+```
+
+Ouvrez votre navigateur sur :
+
+* **API** : `[http://127.0.0.1:8000](http://127.0.0.1:8000)`
+* **Documentation Swagger** : `[http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs)`

@@ -25,7 +25,7 @@
 ### 🎯 Travail à Réaliser en Équipe
 
 #### Étape 1.1 : Cadrage du Scénario
-Avec votre groupe (2 à 4 personnes), définissez brièvement votre univers (3 à 4 salles minimum) et complétez la fiche de cadrage :
+Avec votre groupe (2 à 3 personnes), définissez brièvement votre univers (3 à 4 salles minimum) et complétez la fiche de cadrage :
 - **Titre de votre jeu** : *(ex: Operation: Neon Cyberpunk / Le Secret du Château Blackwood)*
 - **Thématique** : *(ex: Infiltration, Horreur, Sci-Fi...)*
 - **Nom du Game Master** : *(ex: IA-Sentinel / Le Gardien)*
