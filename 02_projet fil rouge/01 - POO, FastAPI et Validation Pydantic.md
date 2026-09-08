@@ -74,6 +74,12 @@ Faire un ou plusieurs diagrammes de classe avec `mermaid`
 Créez l'application FastAPI principale et exposez l'endpoint de contrôle de santé :
 - `GET /health` : Retourne `{"status": "online", "game_title": "Votre Titre", "engine_version": "1.0.0"}`.
 
+Exemples d'exploration des salles (GET /salles et GET salle/1)
+
+Un escape game se joue à plusieurs
+
+(donner un exemple de la structure pour les joueurs et la possibilité de lister les joueurs et en ajouter)
+
 #### Étape 2.2 : Schemas Pydantic (`app/schemas/`)
 Définissez les modèles de validation d'API :
 
