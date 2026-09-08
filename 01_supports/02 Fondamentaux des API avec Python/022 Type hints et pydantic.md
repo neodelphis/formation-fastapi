@@ -24,35 +24,36 @@
 
 ---
 
-# 16. Les Type Hints
+# 16. Les annotations de type des variables (Type Hints)
 
-Nous voulons que `player_id` soit un entier.
+Actuellement, notre `player_id` est interprété comme du texte. Nous voulons que ce soit un nombre entier.
 
-Nous écrivons :
+Nous pouvons l'indiquer à FastAPI en écrivant :
 
 ```python
 @app.get("/players/{player_id}")
 def get_player(player_id: int):
+    # Pour tester, on renvoie juste l'ID converti
     return {
         "id": player_id
     }
 ```
 
-Maintenant :
+Maintenant, la requête :
 
 ```text
-/player/42
+GET /players/42
 ```
 
 est valide.
 
-Mais :
+Mais si on essaie :
 
 ```text
-/players/hello
+GET /players/hello
 ```
 
-ne l'est pas.
+FastAPI renvoie automatiquement une erreur détaillée expliquant que "hello" n'est pas un entier valide.
 
 FastAPI connaît le type attendu grâce au **Type Hint** :
 
@@ -64,23 +65,22 @@ player_id: int
 
 # 17. Les Type Hints deviennent un outil de validation
 
-C'est une caractéristique importante de FastAPI.
+C'est une caractéristique fondamentale de FastAPI.
 
-Dans Python :
+Dans Python classique, écrire :
 
 ```python
 player_id: int
 ```
 
-est normalement une annotation de type.
+est une simple annotation (une indication pour le développeur).
 
-FastAPI utilise cette information pour :
+FastAPI, en revanche, utilise activement cette information pour :
 
 * **analyser la requête** ;
-* **convertir les données** ;
-* **valider les données** ;
-* **générer la documentation**.
-
+* **convertir les données** (transformer le texte de l'URL en entier Python) ;
+* **valider les données** (rejeter la requête si ce n'est pas un nombre) ;
+* **générer la documentation automatiquement**.
 
 ```mermaid
 flowchart TD
@@ -97,13 +97,18 @@ flowchart TD
     class A client_data
     class B process_api
     class C,D,E result_db
-````
+
+```
 
 ---
 
-# 18. Où sont les joueurs ?
+# 18. Faire évoluer nos données
 
-Pour le moment, nous allons utiliser une simple liste Python.
+Jusqu'à présent, nous utilisions un dictionnaire avec du texte en guise de clé (`"42"`).
+
+Maintenant que nous savons gérer de vrais entiers, rapprochons-nous d'une vraie base de données en utilisant une liste Python contenant nos joueurs.
+
+Remplaçons notre ancien dictionnaire `PLAYERS` par cette liste `players` :
 
 ```python
 players = [
@@ -119,10 +124,17 @@ players = [
         "score": 950,
         "level": 9,
     },
+    {
+        "id": 42,
+        "name": "Zelda",
+        "score": 3000,
+        "level": 99,
+    }
 ]
+
 ```
 
-Notre route :
+Notre route globale reste très simple :
 
 ```python
 @app.get("/players")
@@ -132,9 +144,11 @@ def get_players():
 
 ---
 
-# 19. Récupérer un joueur
+# 19. Récupérer un joueur dans la liste
 
-Nous pouvons rechercher le joueur dans notre liste :
+Nous pouvons maintenant utiliser notre `player_id: int` pour chercher le bon joueur en parcourant notre liste.
+
+La comparaison fonctionnera parfaitement car FastAPI a converti le paramètre de l'URL en entier, et les "id" de notre liste sont aussi des entiers !
 
 ```python
 @app.get("/players/{player_id}")
@@ -143,6 +157,7 @@ def get_player(player_id: int):
         if player["id"] == player_id:
             return player
 
+    # Si la boucle se termine sans rien trouver :
     return {"error": "Player not found"}
 ```
 
@@ -155,8 +170,12 @@ GET /players/1
 ou :
 
 ```text
-GET /players/2
+GET /players/42
 ```
+
+Si nous demandons le joueur `99`, l'API renverra gentiment :
+`{"error": "Player not found"}`
+
 
 ---
 
@@ -164,7 +183,9 @@ GET /players/2
 
 Notre API doit également permettre de **créer** un joueur.
 
-Nous voulons recevoir :
+Nous voulons recevoir les informations du nouveau joueur de la part du client (le navigateur ou l'application). Notez que nous ne demandons pas l'`id` : c'est le rôle du serveur de le générer !
+
+Voici le JSON que nous attendons :
 
 ```json
 {
@@ -172,6 +193,7 @@ Nous voulons recevoir :
     "score": 1000,
     "level": 1
 }
+
 ```
 
 Mais comment indiquer à FastAPI :
@@ -187,7 +209,7 @@ C'est ici que **Pydantic** intervient.
 
 # 21. Pydantic
 
-Pydantic permet de définir des modèles de données Python.
+Pydantic est une bibliothèque intégrée à FastAPI qui permet de définir des modèles de données en Python.
 
 Nous créons une classe :
 
@@ -199,58 +221,71 @@ class Player(BaseModel):
     name: str
     score: int
     level: int
+
 ```
 
-Nous venons de définir le modèle d'un joueur.
+Nous venons de définir le modèle (la forme attendue) d'un joueur entrant.
 
 ---
 
 # 22. Le modèle comme contrat
 
-Notre modèle signifie :
+Notre modèle dicte des règles strictes :
 
-```text
-Player
-│
-├── name  → string
-├── score → integer
-└── level → integer
+```mermaid
+flowchart LR
+    P[Player] --> N["name → texte (string)"]
+    P --> S["score → entier (integer)"]
+    P --> L["level → entier (integer)"]
+
+    %% Styles
+    classDef client_data fill:#2B5E83,stroke:#fff,stroke-width:2px,color:#fff
+    classDef result_db fill:#a5d6a7,stroke:#2e7d32,stroke-width:2px,color:#000
+
+    class P client_data
+    class N,S,L result_db
 ```
 
-On peut donc considérer `Player` comme un **contrat de données**.
+On peut donc considérer `Player` comme un **contrat de données**. Si le client ne respecte pas le contrat, la requête sera rejetée avant même de toucher notre code.
 
-```text
-JSON reçu
-    │
-    ▼
-┌──────────────┐
-│   Pydantic   │
-│    Player    │
-└──────┬───────┘
-       │
-       ▼
-Données validées
+```mermaid
+flowchart TD
+    A[JSON reçu] --> B["Pydantic<br>Player"]
+    B --> C[Données validées]
+
+    %% Styles
+    classDef client_data fill:#2B5E83,stroke:#fff,stroke-width:2px,color:#fff
+    classDef process_api fill:#ffcc80,stroke:#e65100,stroke-width:2px,color:#000
+    classDef result_db fill:#a5d6a7,stroke:#2e7d32,stroke-width:2px,color:#000
+
+    class A client_data
+    class B process_api
+    class C result_db
 ```
 
 ---
 
 # 23. Utiliser un modèle dans une route
 
-Nous pouvons maintenant écrire :
+Nous pouvons maintenant utiliser ce contrat dans une nouvelle route `POST` (utilisée pour créer des données) et ajouter ce joueur à notre liste de la section 18 :
 
 ```python
 @app.post("/players")
 def create_player(player: Player):
-    return player
+    # 1. On transforme l'objet validé par Pydantic en dictionnaire
+    new_player = player.model_dump()
+    
+    # 2. On génère un nouvel ID (par exemple, la taille de la liste + 1)
+    new_player["id"] = len(players) + 1
+    
+    # 3. On l'ajoute à notre fausse base de données
+    players.append(new_player)
+    
+    return new_player
+
 ```
 
-Le Type Hint :
-
-```python
-player: Player
-```
-
-indique à FastAPI :
+Le Type Hint `player: Player` indique à FastAPI :
 
 > Le corps de la requête doit respecter le modèle `Player`.
 
@@ -258,7 +293,7 @@ indique à FastAPI :
 
 # 24. Tester avec JSON
 
-Une requête `POST` peut contenir :
+Si une requête `POST` contient le bon format :
 
 ```json
 {
@@ -268,69 +303,93 @@ Une requête `POST` peut contenir :
 }
 ```
 
-FastAPI :
+Tester en ligne de commande (cURL)
+Il faut préciser que c'est une requête `POST`, indiquer que l'on envoie du JSON via le *Header*, et inclure les données :
 
-1. reçoit le JSON ;
-2. demande à Pydantic de le valider ;
-3. construit un objet `Player` ;
-4. appelle notre fonction.
+```bash
+curl -X POST http://127.0.0.1:8000/players \
+     -H "Content-Type: application/json" \
+     -d '{"name": "Charlie", "score": 1000, "level": 1}'
 
-```text
-JSON
- │
- ▼
-FastAPI
- │
- ▼
-Pydantic
- │
- ├── valide
- │
- ▼
-Player
- │
- ▼
-create_player()
+```
+
+Vérification:
+```bash
+curl -X GET http://127.0.0.1:8000/players
+```
+
+Voici ce que fait FastAPI en coulisses :
+
+1. Il reçoit le texte JSON.
+2. Il demande à Pydantic de vérifier les types.
+3. Il construit un objet Python `Player`.
+4. Il l'injecte dans notre fonction `create_player()`.
+
+```mermaid
+flowchart TD
+    A[JSON entrant] --> B["FastAPI (intercepte)"]
+    B --> C["Pydantic (valide les types)"]
+    C -->|Succès| D[Objet Pydantic Player]
+    D --> E["Exécution de create_player()"]
+
+    %% Styles
+    classDef client_data fill:#2B5E83,stroke:#fff,stroke-width:2px,color:#fff
+    classDef process_api fill:#ffcc80,stroke:#e65100,stroke-width:2px,color:#000
+    classDef result_db fill:#a5d6a7,stroke:#2e7d32,stroke-width:2px,color:#000
+
+    class A client_data
+    class B,C process_api
+    class D,E result_db
 ```
 
 ---
 
 # 25. Et si les données sont incorrectes ?
 
-Essayons :
+Essayons d'envoyer une erreur classique (le score est du texte au lieu d'un nombre) :
 
 ```json
 {
     "name": "Charlie",
-    "score": "hello",
+    "score": "mille",
     "level": 1
 }
 ```
 
 Le champ `score` doit être un entier.
 
-FastAPI détecte automatiquement le problème.
+FastAPI détecte automatiquement le problème et renvoie une erreur `422 Unprocessable Entity` au client, avec un message expliquant précisément que `score` n'est pas un entier valide.
 
-Nous n'avons pas écrit :
+```bash
+curl -X POST http://127.0.0.1:8000/players \
+     -H "Content-Type: application/json" \
+     -d '{"name": "Charlie_error", "score": "mille", "level": 1}'
+
+```
+
+Nous n'avons **pas** eu besoin d'écrire du code de vérification comme :
 
 ```python
 if not isinstance(score, int):
-    ...
+    return "Erreur..."
+
 ```
 
-La validation est réalisée automatiquement.
+La validation nous protège par défaut.
 
 ---
 
 # 26. Ajouter des contraintes
 
-Les types ne sont pas toujours suffisants.
+Les types (texte, entier) ne sont pas toujours suffisants.
 
 Par exemple :
 
-> Le score ne peut pas être négatif.
+* Le nom doit faire au moins 3 caractères.
+* Le score ne peut pas être négatif.
+* Le niveau commence au minimum à 1.
 
-Nous pouvons utiliser `Field`.
+Nous pouvons utiliser `Field` de Pydantic pour ajouter ces règles métier :
 
 ```python
 from pydantic import BaseModel, Field
@@ -338,109 +397,94 @@ from pydantic import BaseModel, Field
 
 class Player(BaseModel):
     name: str = Field(min_length=3)
-    score: int = Field(ge=0)
+    score: int = Field(ge=0) # ge = Greater than or Equal (>=)
     level: int = Field(ge=1)
-```
 
-Nous exprimons maintenant des règles métier simples :
-
-```text
-name  → au moins 3 caractères
-score → >= 0
-level → >= 1
 ```
 
 ---
 
-# 27. Pourquoi est-ce intéressant ?
+# 27. Pourquoi est-ce si puissant ?
 
-Nous avons défini les règles **une seule fois**.
+Nous avons défini nos règles complexes **à un seul endroit**, de manière très lisible.
 
 ```python
 class Player(BaseModel):
     name: str = Field(min_length=3)
     score: int = Field(ge=0)
     level: int = Field(ge=1)
+
 ```
 
-FastAPI/Pydantic peuvent ensuite utiliser ces informations pour :
+FastAPI et Pydantic utilisent ensemble ce modèle pour :
 
-* valider les données ;
-* générer des erreurs ;
-* construire le schéma OpenAPI ;
-* documenter automatiquement l'API.
+* **Protéger l'API** (Rejeter les requêtes frauduleuses ou mal formatées).
+* **Convertir les données** (JSON vers Python).
+* **Générer le schéma OpenAPI** (qui décrit les règles exactes).
+* **Mettre à jour la documentation automatique**, où les utilisateurs verront instantanément que le score doit être `>= 0`.
+
+
+# 28. Une API REST complète
+
+Nous avons créé les routes pour lire (GET) et ajouter (POST) des joueurs. Pour être complète, notre API doit aussi permettre de modifier et de supprimer des données.
+
+Voici à quoi ressemble l'architecture standard d'une API REST (aussi appelée modèle CRUD : Create, Read, Update, Delete) :
 
 ```text
-               Player
-                  │
-        ┌─────────┼─────────┐
-        ▼         ▼         ▼
-   Validation   OpenAPI   Documentation
+GET    /players             (Lire tous les joueurs)
+GET    /players/{player_id} (Lire un joueur précis)
+POST   /players             (Créer un nouveau joueur)
+PUT    /players/{player_id} (Mettre à jour un joueur existant)
+DELETE /players/{player_id} (Supprimer un joueur)
+
 ```
 
----
+Nous avons maintenant rassemblé les briques fondamentales d'une application web moderne :
 
-# 28. Repenser notre API
+```mermaid
+%%| fig-width: 4
+flowchart TD
+    A["Client<br>(Navigateur, App Mobile)"] -->|1. Requête HTTP| B{"Game API"}
 
-Nous avons maintenant :
+    subgraph Core["Cœur de l'Application"]
+        B --> C["🛣️ Routage<br>(Associe l'URL à la bonne fonction)"]
+        C --> D["📦 Modèles<br>(Définit la structure des données attendues)"]
+        D --> E["✅ Validation<br>(Vérifie et sécurise les données entrantes)"]
+    end
 
-```text
-GET    /players
-GET    /players/{player_id}
+    E -->|2. Traitement terminé| F["Format JSON<br>(Données standardisées)"]
+    F -->|3. Réponse HTTP| A
 
-POST   /players
+    %% Styles
+    classDef client_data fill:#2B5E83,stroke:#fff,stroke-width:2px,color:#fff
+    classDef process_api fill:#ffcc80,stroke:#e65100,stroke-width:2px,color:#000
+    classDef result_db fill:#a5d6a7,stroke:#2e7d32,stroke-width:2px,color:#000
 
-PUT    /players/{player_id}
-
-DELETE /players/{player_id}
-```
-
-Nous avons donc les principaux éléments d'une API REST.
-
-```text
-              Game API
-                  │
-       ┌──────────┼──────────┐
-       ▼          ▼          ▼
-    Routing    Models     Validation
-       │          │          │
-       └──────────┼──────────┘
-                  ▼
-               HTTP/JSON
+    class A,F client_data
+    class B,C,D,E process_api
+    style Core fill:none,stroke:#ffcc80,stroke-width:2px,stroke-dasharray: 5 5
 ```
 
 ---
 
 # 29. Le contrat d'une API
 
-Une API doit permettre au client de savoir :
+Une API n'est utile que si les autres (un navigateur, une application mobile, un autre serveur) peuvent l'utiliser. Elle doit répondre clairement à la question :
 
 > « Comment dois-je communiquer avec le serveur ? »
 
-Par exemple :
-
-```text
-POST /players
-
-Request body:
-
-{
-    "name": "Charlie",
-    "score": 1000,
-    "level": 1
-}
-```
-
-Le client doit savoir :
+Par exemple, pour faire un `POST /players`, le client doit absolument savoir :
 
 * que la route existe ;
-* qu'elle utilise `POST` ;
-* quels champs envoyer ;
-* quels sont leurs types ;
-* quels champs sont obligatoires ;
-* quelle réponse attendre ;
-* quelles erreurs peuvent être retournées.
+* qu'elle utilise bien la méthode `POST` ;
+* quels champs envoyer dans le JSON ;
+* quels sont leurs types (`str`, `int`) et leurs contraintes (`>= 0`) ;
+* quels champs sont obligatoires ou optionnels ;
+* à quoi ressemblera la réponse en cas de succès ;
+* quelles erreurs peuvent être retournées (comme l'erreur 422).
 
-Tout cela constitue une partie du **contrat de l'API**.
+L'ensemble de ces règles strictes constitue le **contrat de l'API**.
+
+> **La magie de FastAPI :** Historiquement, les développeurs devaient rédiger ce contrat manuellement (souvent dans de longs fichiers texte ou Word qui n'étaient jamais à jour). Grâce à vos Type Hints et à vos modèles Pydantic, FastAPI écrit ce contrat automatiquement (via le standard OpenAPI) et le rend interactif sur la page `[http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs)` !
 
 ---
