@@ -76,12 +76,13 @@ Créez l'application FastAPI principale et exposez l'endpoint de contrôle de sa
 
 Exemples d'exploration des salles (GET /salles et GET salle/1)
 
-Un escape game se joue à plusieurs
 
-(donner un exemple de la structure pour les joueurs et la possibilité de lister les joueurs et en ajouter)
+#### Étape 2.2 : Un escape game se joue à plusieurs
 
-#### Étape 2.2 : Schemas Pydantic (`app/schemas/`)
-Définissez les modèles de validation d'API :
+En utilisant ce qui a été vu dans le cours, donner un exemple de la structure pour les joueurs et la possibilité de lister les joueurs et en ajouter... Puis tester tous les types de routes associées aux joueurs.
+
+#### Étape 2.3 : Schemas Pydantic (`app/schemas/`)
+Définissez les modèles de validation d'API par rapport aux classes que vous avez définies:
 
 ```python
 # app/schemas/puzzle.py
@@ -98,7 +99,7 @@ class PuzzleSubmission(BaseModel):
 	    # A compléter avec la levée d'une exeption ValueError dans le cas contraire
 ```
 
-#### Étape 2.3 : Endpoints REST d'exploration Joueur
+#### Étape 2.4 : Endpoints REST d'exploration Joueur
 Déclarez les routes dans `app/routers/player_game.py` :
 - `GET /rooms` : Retourne la liste des salles découvertes par le joueur.
 - `GET /rooms/{room_id}` : Retourne le détail d'une salle spécifique et ses objets interactifs.
