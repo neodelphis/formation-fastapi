@@ -75,7 +75,7 @@ __pycache__/
 La méthode standard avec Conda est d'utiliser un fichier `environment.yml`. Créez ce fichier à la racine de votre projet :
 
 ```yaml
-name: escape_engine
+name: fastapi
 channels:
   - conda-forge
   - defaults
