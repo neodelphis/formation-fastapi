@@ -1,0 +1,204 @@
+{
+  "titre": "QCM sur les Fondamentaux des API",
+  "description": "Validation des acquis sur le fonctionnement des API, les principes REST et le framework FastAPI.",
+  "questions": [
+    {
+      "texte": "Que signifie l'acronyme API ?",
+      "type": "unique",
+      "indice": "C'est une interface pour la programmation d'applications.",
+      "options": [
+        {
+          "texte": "Application Programming Interface",
+          "est_correcte": true
+        },
+        {
+          "texte": "Applied Python Interface",
+          "est_correcte": false
+        },
+        {
+          "texte": "Advanced Programming Integration",
+          "est_correcte": false
+        }
+      ]
+    },
+    {
+      "texte": "Pourquoi est-il déconseillé qu'une application (comme un jeu sur smartphone) se connecte directement à la base de données ?",
+      "type": "unique",
+      "indice": "Pensez à la sécurité et à l'interception des requêtes.",
+      "options": [
+        {
+          "texte": "Pour des raisons de sécurité, car le client contiendrait les codes d'accès et pourrait tricher.",
+          "est_correcte": true
+        },
+        {
+          "texte": "Parce que les bases de données ne comprennent pas le langage Python.",
+          "est_correcte": false
+        }
+      ]
+    },
+    {
+      "texte": "Quelles sont les méthodes HTTP qui correspondent respectivement aux actions CRUD : Créer et Supprimer ?",
+      "type": "multiple",
+      "indice": null,
+      "options": [
+        {
+          "texte": "POST",
+          "est_correcte": true
+        },
+        {
+          "texte": "DELETE",
+          "est_correcte": true
+        },
+        {
+          "texte": "GET",
+          "est_correcte": false
+        },
+        {
+          "texte": "PUT",
+          "est_correcte": false
+        }
+      ]
+    },
+    {
+      "texte": "Quel code de statut HTTP indique que la ressource demandée est inexistante ?",
+      "type": "unique",
+      "indice": null,
+      "options": [
+        {
+          "texte": "404",
+          "est_correcte": true
+        },
+        {
+          "texte": "200",
+          "est_correcte": false
+        },
+        {
+          "texte": "500",
+          "est_correcte": false
+        },
+        {
+          "texte": "422",
+          "est_correcte": false
+        }
+      ]
+    },
+    {
+      "texte": "Que signifie le code HTTP 422 ?",
+      "type": "unique",
+      "indice": null,
+      "options": [
+        {
+          "texte": "Données reçues invalides",
+          "est_correcte": true
+        },
+        {
+          "texte": "Authentification nécessaire",
+          "est_correcte": false
+        },
+        {
+          "texte": "Erreur interne du serveur",
+          "est_correcte": false
+        }
+      ]
+    },
+    {
+      "texte": "Parmi ces types de données, lesquels peuvent être contenus dans un objet JSON ?",
+      "type": "multiple",
+      "indice": null,
+      "options": [
+        {
+          "texte": "Des chaînes de caractères",
+          "est_correcte": true
+        },
+        {
+          "texte": "Des nombres",
+          "est_correcte": true
+        },
+        {
+          "texte": "Des tableaux",
+          "est_correcte": true
+        },
+        {
+          "texte": "Des classes Python",
+          "est_correcte": false
+        }
+      ]
+    },
+    {
+      "texte": "Que signifie REST ?",
+      "type": "unique",
+      "indice": null,
+      "options": [
+        {
+          "texte": "Representational State Transfer",
+          "est_correcte": true
+        },
+        {
+          "texte": "Random Execution Service Transfer",
+          "est_correcte": false
+        }
+      ]
+    },
+    {
+      "texte": "Sur quelles technologies et concepts le framework FastAPI s'appuie-t-il fortement ?",
+      "type": "multiple",
+      "indice": null,
+      "options": [
+        {
+          "texte": "Les Type Hints Python",
+          "est_correcte": true
+        },
+        {
+          "texte": "Pydantic",
+          "est_correcte": true
+        },
+        {
+          "texte": "OpenAPI",
+          "est_correcte": true
+        },
+        {
+          "texte": "Django",
+          "est_correcte": false
+        }
+      ]
+    },
+    {
+      "texte": "Comment définit-on correctement une route avec FastAPI pour récupérer un joueur spécifique via son identifiant ?",
+      "type": "unique",
+      "indice": "Observez la syntaxe des décorateurs en Python et des paramètres de chemin dans FastAPI : \n```python\n@app.get(\"/players/{player_id}\")\n```",
+      "options": [
+        {
+          "texte": "```python\n@app.get(\"/players/{player_id}\")\n```",
+          "est_correcte": true
+        },
+        {
+          "texte": "```python\n@app.get(\"/players/player_id\")\n```",
+          "est_correcte": false
+        },
+        {
+          "texte": "```python\n@app.post(\"/players/{player_id}\")\n```",
+          "est_correcte": false
+        }
+      ]
+    },
+    {
+      "texte": "Comment lance-t-on le serveur de développement FastAPI depuis le terminal pour le fichier `main.py` ?",
+      "type": "unique",
+      "indice": "La commande inclut le nom du framework, l'environnement de développement et le nom du fichier.",
+      "options": [
+        {
+          "texte": "```bash\nfastapi dev main.py\n```",
+          "est_correcte": true
+        },
+        {
+          "texte": "```bash\npython main.py\n```",
+          "est_correcte": false
+        },
+        {
+          "texte": "```bash\nfastapi run server.py\n```",
+          "est_correcte": false
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,669 @@
+%PDF-1.3
+%ºß¬à
+3 0 obj
+<</Type /Page
+/Parent 1 0 R
+/Resources 2 0 R
+/MediaBox [0 0 595.2799999999999727 841.8899999999999864]
+/Contents 4 0 R
+>>
+endobj
+4 0 obj
+<<
+/Length 4804
+>>
+stream
+0.5670000000000001 w
+0 G
+0.15 0.39 0.92 rg
+59.5275590551181182 802.2049606299211746 m
+87.8740157480315105 802.2049606299211746 l
+92.5706104710020412 802.2049606299211746 96.3779527559055254 798.3976183450176904 96.3779527559055254 793.7010236220471597 c
+96.3779527559055254 765.3545669291338527 l
+96.3779527559055254 760.657972206163322 91.6813580329349804 756.8506299212598378 87.8740157480315105 756.8506299212598378 c
+59.5275590551181182 756.8506299212598378 l
+54.8309643321475875 756.8506299212598378 51.0236220472441033 761.5472246442302549 51.0236220472441033 765.3545669291338527 c
+51.0236220472441033 793.7010236220471597 l
+51.0236220472441033 798.3976183450176904 55.7202167702146269 802.2049606299211746 59.5275590551181182 802.2049606299211746 c
+h
+f
+BT
+/F2 10 Tf
+11.5 TL
+1. g
+59.5275590551181182 773.8585039370078675 Td
+(QCM) Tj
+ET
+BT
+/F2 20 Tf
+23. TL
+0.059 0.09 0.165 rg
+119.0551181102362364 771.0238582677164914 Td
+(QCM sur les Fondamentaux des API) Tj
+ET
+0.89 0.91 0.94 RG
+51.0236220472441033 734.1734645669290558 m
+544.2563779527558836 734.1734645669290558 l
+S
+BT
+/F1 10 Tf
+11.5 TL
+0.392 0.455 0.545 rg
+51.0236220472441033 708.6616535433070112 Td
+(Questionnaire avec corrigé) Tj
+ET
+BT
+/F2 11 Tf
+12.6499999999999986 TL
+0.059 0.09 0.165 rg
+51.0236220472441033 666.1419685039369369 Td
+(1. Que signifie l'acronyme API ?) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0.082 0.502 0.239 rg
+68.031496062992133 640.6301574803148924 Td
+([x] Application Programming Interface) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0.2 0.255 0.333 rg
+68.031496062992133 620.7876377952754865 Td
+([ ] Applied Python Interface) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0.2 0.255 0.333 rg
+68.031496062992133 600.9451181102361943 Td
+([ ] Advanced Programming Integration) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0.086 0.396 0.204 rg
+68.031496062992133 575.4333070866141497 Td
+(Les réponses cochées sont les bonnes réponses.) Tj
+ET
+BT
+/F2 11 Tf
+12.6499999999999986 TL
+0.059 0.09 0.165 rg
+51.0236220472441033 547.086850393700729 Td
+(2. Pourquoi est-il déconseillé qu'une application \(comme un jeu sur smartphone\) se connecte) Tj
+T* (directement à la base de données ?) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0.082 0.502 0.239 rg
+68.031496062992133 507.4018110236219741 Td
+([x] Pour des raisons de sécurité, car le client contiendrait les codes d'accès et pourrait tricher.) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0.2 0.255 0.333 rg
+68.031496062992133 487.559291338582625 Td
+([ ] Parce que les bases de données ne comprennent pas le langage Python.) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0.086 0.396 0.204 rg
+68.031496062992133 462.0474803149605805 Td
+(Les réponses cochées sont les bonnes réponses.) Tj
+ET
+BT
+/F2 11 Tf
+12.6499999999999986 TL
+0.059 0.09 0.165 rg
+51.0236220472441033 433.7010236220471597 Td
+(3. Quelles sont les méthodes HTTP qui correspondent respectivement aux actions CRUD :) Tj
+T* (Créer et Supprimer ?) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0.082 0.502 0.239 rg
+68.031496062992133 394.0159842519684616 Td
+([x] POST) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0.082 0.502 0.239 rg
+68.031496062992133 374.1734645669290558 Td
+([x] DELETE) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0.2 0.255 0.333 rg
+68.031496062992133 354.3309448818897067 Td
+([ ] GET) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0.2 0.255 0.333 rg
+68.031496062992133 334.4884251968503008 Td
+([ ] PUT) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0.086 0.396 0.204 rg
+68.031496062992133 308.9766141732283131 Td
+(Les réponses cochées sont les bonnes réponses.) Tj
+ET
+BT
+/F2 11 Tf
+12.6499999999999986 TL
+0.059 0.09 0.165 rg
+51.0236220472441033 280.6301574803148924 Td
+(4. Quel code de statut HTTP indique que la ressource demandée est inexistante ?) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0.082 0.502 0.239 rg
+68.031496062992133 255.1183464566928478 Td
+([x] 404) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0.2 0.255 0.333 rg
+68.031496062992133 235.2758267716534419 Td
+([ ] 200) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0.2 0.255 0.333 rg
+68.031496062992133 215.4333070866141497 Td
+([ ] 500) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0.2 0.255 0.333 rg
+68.031496062992133 195.5907874015747439 Td
+([ ] 422) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0.086 0.396 0.204 rg
+68.031496062992133 170.0789763779526993 Td
+(Les réponses cochées sont les bonnes réponses.) Tj
+ET
+BT
+/F2 11 Tf
+12.6499999999999986 TL
+0.059 0.09 0.165 rg
+51.0236220472441033 141.7325196850392786 Td
+(5. Que signifie le code HTTP 422 ?) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0.082 0.502 0.239 rg
+68.031496062992133 116.220708661417234 Td
+([x] Données reçues invalides) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0.2 0.255 0.333 rg
+68.031496062992133 96.3781889763778281 Td
+([ ] Authentification nécessaire) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0.2 0.255 0.333 rg
+68.031496062992133 76.5356692913385359 Td
+([ ] Erreur interne du serveur) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0.086 0.396 0.204 rg
+68.031496062992133 51.0238582677164914 Td
+(Les réponses cochées sont les bonnes réponses.) Tj
+ET
+endstream
+endobj
+5 0 obj
+<</Type /Page
+/Parent 1 0 R
+/Resources 2 0 R
+/MediaBox [0 0 595.2799999999999727 841.8899999999999864]
+/Contents 6 0 R
+>>
+endobj
+6 0 obj
+<<
+/Length 3830
+>>
+stream
+0.5670000000000001 w
+0.89 0.91 0.94 RG
+BT
+/F2 11 Tf
+12.6499999999999986 TL
+0.059 0.09 0.165 rg
+51.0236220472441033 779.5277952755905062 Td
+(6. Parmi ces types de données, lesquels peuvent être contenus dans un objet JSON ?) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0.082 0.502 0.239 rg
+68.031496062992133 754.0159842519684616 Td
+([x] Des chaînes de caractères) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0.082 0.502 0.239 rg
+68.031496062992133 734.1734645669291695 Td
+([x] Des nombres) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0.082 0.502 0.239 rg
+68.031496062992133 714.3309448818897636 Td
+([x] Des tableaux) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0.2 0.255 0.333 rg
+68.031496062992133 694.4884251968503577 Td
+([ ] Des classes Python) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0.086 0.396 0.204 rg
+68.031496062992133 668.9766141732283131 Td
+(Les réponses cochées sont les bonnes réponses.) Tj
+ET
+BT
+/F2 11 Tf
+12.6499999999999986 TL
+0.059 0.09 0.165 rg
+51.0236220472441033 640.6301574803148924 Td
+(7. Que signifie REST ?) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0.082 0.502 0.239 rg
+68.031496062992133 615.1183464566928478 Td
+([x] Representational State Transfer) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0.2 0.255 0.333 rg
+68.031496062992133 595.2758267716535556 Td
+([ ] Random Execution Service Transfer) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0.086 0.396 0.204 rg
+68.031496062992133 569.7640157480313974 Td
+(Les réponses cochées sont les bonnes réponses.) Tj
+ET
+BT
+/F2 11 Tf
+12.6499999999999986 TL
+0.059 0.09 0.165 rg
+51.0236220472441033 541.4175590551180903 Td
+(8. Sur quelles technologies et concepts le framework FastAPI s'appuie-t-il fortement ?) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0.082 0.502 0.239 rg
+68.031496062992133 515.9057480314959321 Td
+([x] Les Type Hints Python) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0.082 0.502 0.239 rg
+68.031496062992133 496.0632283464566399 Td
+([x] Pydantic) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0.082 0.502 0.239 rg
+68.031496062992133 476.2207086614172908 Td
+([x] OpenAPI) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0.2 0.255 0.333 rg
+68.031496062992133 456.378188976377885 Td
+([ ] Django) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0.086 0.396 0.204 rg
+68.031496062992133 430.8663779527558404 Td
+(Les réponses cochées sont les bonnes réponses.) Tj
+ET
+BT
+/F2 11 Tf
+12.6499999999999986 TL
+0.059 0.09 0.165 rg
+51.0236220472441033 402.5199212598424765 Td
+(9. Comment définit-on correctement une route avec FastAPI pour récupérer un joueur) Tj
+T* (spécifique via son identifiant ?) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0.082 0.502 0.239 rg
+68.031496062992133 362.8348818897637216 Td
+([x] ```python) Tj
+T* (@app.get\("/players/{player_id}"\)) Tj
+T* (```) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0.2 0.255 0.333 rg
+68.031496062992133 314.6459055118109518 Td
+([ ] ```python) Tj
+T* (@app.get\("/players/player_id"\)) Tj
+T* (```) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0.2 0.255 0.333 rg
+68.031496062992133 266.4569291338582389 Td
+([ ] ```python) Tj
+T* (@app.post\("/players/{player_id}"\)) Tj
+T* (```) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0.086 0.396 0.204 rg
+68.031496062992133 212.5986614173227736 Td
+(Les réponses cochées sont les bonnes réponses.) Tj
+ET
+BT
+/F2 11 Tf
+12.6499999999999986 TL
+0.059 0.09 0.165 rg
+51.0236220472441033 184.2522047244093528 Td
+(10. Comment lance-t-on le serveur de développement FastAPI depuis le terminal pour le) Tj
+T* (fichier `main.py` ?) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0.082 0.502 0.239 rg
+68.031496062992133 144.5671653543306547 Td
+([x] ```bash) Tj
+T* (fastapi dev main.py) Tj
+T* (```) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0.2 0.255 0.333 rg
+68.031496062992133 96.3781889763778281 Td
+([ ] ```bash) Tj
+T* (python main.py) Tj
+T* (```) Tj
+ET
+BT
+/F1 10 Tf
+11.5 TL
+0.2 0.255 0.333 rg
+68.031496062992133 48.1892125984251152 Td
+([ ] ```bash) Tj
+T* (fastapi run server.py) Tj
+T* (```) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0.086 0.396 0.204 rg
+68.031496062992133 -5.6690551181103501 Td
+(Les réponses cochées sont les bonnes réponses.) Tj
+ET
+endstream
+endobj
+1 0 obj
+<</Type /Pages
+/Kids [3 0 R 5 0 R ]
+/Count 2
+>>
+endobj
+7 0 obj
+<<
+/Type /Font
+/BaseFont /Helvetica
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+8 0 obj
+<<
+/Type /Font
+/BaseFont /Helvetica-Bold
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+9 0 obj
+<<
+/Type /Font
+/BaseFont /Helvetica-Oblique
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+10 0 obj
+<<
+/Type /Font
+/BaseFont /Helvetica-BoldOblique
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+11 0 obj
+<<
+/Type /Font
+/BaseFont /Courier
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+12 0 obj
+<<
+/Type /Font
+/BaseFont /Courier-Bold
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+13 0 obj
+<<
+/Type /Font
+/BaseFont /Courier-Oblique
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+14 0 obj
+<<
+/Type /Font
+/BaseFont /Courier-BoldOblique
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+15 0 obj
+<<
+/Type /Font
+/BaseFont /Times-Roman
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+16 0 obj
+<<
+/Type /Font
+/BaseFont /Times-Bold
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+17 0 obj
+<<
+/Type /Font
+/BaseFont /Times-Italic
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+18 0 obj
+<<
+/Type /Font
+/BaseFont /Times-BoldItalic
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+19 0 obj
+<<
+/Type /Font
+/BaseFont /ZapfDingbats
+/Subtype /Type1
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+20 0 obj
+<<
+/Type /Font
+/BaseFont /Symbol
+/Subtype /Type1
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+2 0 obj
+<<
+/ProcSet [/PDF /Text /ImageB /ImageC /ImageI]
+/Font <<
+/F1 7 0 R
+/F2 8 0 R
+/F3 9 0 R
+/F4 10 0 R
+/F5 11 0 R
+/F6 12 0 R
+/F7 13 0 R
+/F8 14 0 R
+/F9 15 0 R
+/F10 16 0 R
+/F11 17 0 R
+/F12 18 0 R
+/F13 19 0 R
+/F14 20 0 R
+>>
+/XObject <<
+>>
+>>
+endobj
+21 0 obj
+<<
+/Producer (jsPDF 4.2.1)
+/CreationDate (D:20260924093148+02'00')
+>>
+endobj
+22 0 obj
+<<
+/Type /Catalog
+/Pages 1 0 R
+/OpenAction [3 0 R /FitH null]
+/PageLayout /OneColumn
+>>
+endobj
+xref
+0 23
+0000000000 65535 f 
+0000009027 00000 n 
+0000010852 00000 n 
+0000000015 00000 n 
+0000000152 00000 n 
+0000005008 00000 n 
+0000005145 00000 n 
+0000009090 00000 n 
+0000009215 00000 n 
+0000009345 00000 n 
+0000009478 00000 n 
+0000009616 00000 n 
+0000009740 00000 n 
+0000009869 00000 n 
+0000010001 00000 n 
+0000010137 00000 n 
+0000010265 00000 n 
+0000010392 00000 n 
+0000010521 00000 n 
+0000010654 00000 n 
+0000010756 00000 n 
+0000011102 00000 n 
+0000011188 00000 n 
+trailer
+<<
+/Size 23
+/Root 22 0 R
+/Info 21 0 R
+/ID [ <BACD5F4C009461BD552B0B433593F116> <BACD5F4C009461BD552B0B433593F116> ]
+>>
+startxref
+11292
+%%EOF

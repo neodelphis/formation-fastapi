@@ -1,0 +1,204 @@
+{
+  "titre": "QCM sur les Type Hints et Pydantic",
+  "description": "Validation des acquis sur l'utilisation des Type Hints, la création de modèles Pydantic et la validation des données avec FastAPI.",
+  "questions": [
+    {
+      "texte": "Contrairement à Python classique, comment FastAPI utilise-t-il les annotations de type (Type Hints) ?",
+      "type": "multiple",
+      "indice": "FastAPI ne se contente pas d'informer le développeur, il agit activement sur les données reçues.",
+      "options": [
+        {
+          "texte": "Il s'en sert uniquement comme simple indication pour le développeur.",
+          "est_correcte": false
+        },
+        {
+          "texte": "Il les utilise pour analyser la requête et convertir les données.",
+          "est_correcte": true
+        },
+        {
+          "texte": "Il s'en sert pour valider les données et rejeter la requête si nécessaire.",
+          "est_correcte": true
+        },
+        {
+          "texte": "Il les utilise pour générer la documentation automatiquement.",
+          "est_correcte": true
+        }
+      ]
+    },
+    {
+      "texte": "Quel code d'erreur HTTP FastAPI renvoie-t-il automatiquement si une donnée reçue ne correspond pas au type attendu (par exemple, du texte au lieu d'un entier) ?",
+      "type": "unique",
+      "indice": null,
+      "options": [
+        {
+          "texte": "404 Not Found",
+          "est_correcte": false
+        },
+        {
+          "texte": "500 Internal Server Error",
+          "est_correcte": false
+        },
+        {
+          "texte": "422 Unprocessable Entity",
+          "est_correcte": true
+        }
+      ]
+    },
+    {
+      "texte": "Quelle bibliothèque intégrée à FastAPI permet de définir des modèles de données en Python ?",
+      "type": "unique",
+      "indice": null,
+      "options": [
+        {
+          "texte": "SQLAlchemy",
+          "est_correcte": false
+        },
+        {
+          "texte": "Pydantic",
+          "est_correcte": true
+        },
+        {
+          "texte": "Requests",
+          "est_correcte": false
+        }
+      ]
+    },
+    {
+      "texte": "Comment définit-on un modèle Pydantic pour structurer et valider les données entrantes ?",
+      "type": "unique",
+      "indice": "Il faut hériter d'une classe spécifique fournie par la bibliothèque.",
+      "options": [
+        {
+          "texte": "En créant une classe qui hérite de `BaseModel`.",
+          "est_correcte": true
+        },
+        {
+          "texte": "En créant un dictionnaire Python standard.",
+          "est_correcte": false
+        },
+        {
+          "texte": "En utilisant le décorateur `@app.model`.",
+          "est_correcte": false
+        }
+      ]
+    },
+    {
+      "texte": "Lorsqu'on teste l'envoi d'une requête POST avec la commande `curl`, comment indique-t-on à FastAPI que les données transmises sont au format JSON ?",
+      "type": "unique",
+      "indice": "Il faut utiliser l'option `-H` pour définir un en-tête spécifique.",
+      "options": [
+        {
+          "texte": "En ajoutant l'en-tête `Content-Type: application/json`",
+          "est_correcte": true
+        },
+        {
+          "texte": "En ajoutant l'en-tête `Data-Format: json`",
+          "est_correcte": false
+        },
+        {
+          "texte": "FastAPI le devine automatiquement sans avoir besoin d'en-tête.",
+          "est_correcte": false
+        }
+      ]
+    },
+    {
+      "texte": "Comment peut-on ajouter des contraintes de validation supplémentaires (comme une longueur minimale ou une valeur minimale) à un champ dans un modèle Pydantic ?",
+      "type": "unique",
+      "indice": null,
+      "options": [
+        {
+          "texte": "En utilisant la fonction `Field` de Pydantic.",
+          "est_correcte": true
+        },
+        {
+          "texte": "En écrivant des conditions `if/else` directement dans la route FastAPI.",
+          "est_correcte": false
+        },
+        {
+          "texte": "En utilisant le mot-clé `constraint` de Python.",
+          "est_correcte": false
+        }
+      ]
+    },
+    {
+      "texte": "Dans le code suivant, que signifie l'argument `ge=0` ?\n```python\nscore: int = Field(ge=0)\n```\n",
+      "type": "unique",
+      "indice": "L'abréviation vient de l'anglais pour définir une limite basse inclusive.",
+      "options": [
+        {
+          "texte": "Le score doit être strictement supérieur à 0 (Greater).",
+          "est_correcte": false
+        },
+        {
+          "texte": "Le score doit être supérieur ou égal à 0 (Greater than or Equal).",
+          "est_correcte": true
+        },
+        {
+          "texte": "Le score doit être égal à 0 (General Equal).",
+          "est_correcte": false
+        }
+      ]
+    },
+    {
+      "texte": "Dans une architecture REST standard (CRUD), quelles méthodes HTTP sont généralement utilisées pour mettre à jour et supprimer des données ?",
+      "type": "multiple",
+      "indice": null,
+      "options": [
+        {
+          "texte": "POST",
+          "est_correcte": false
+        },
+        {
+          "texte": "PUT",
+          "est_correcte": true
+        },
+        {
+          "texte": "DELETE",
+          "est_correcte": true
+        },
+        {
+          "texte": "GET",
+          "est_correcte": false
+        }
+      ]
+    },
+    {
+      "texte": "Comment FastAPI génère-t-il le contrat de l'API (le standard OpenAPI) ?",
+      "type": "unique",
+      "indice": null,
+      "options": [
+        {
+          "texte": "Le développeur doit l'écrire manuellement dans un fichier texte.",
+          "est_correcte": false
+        },
+        {
+          "texte": "Automatiquement, en se basant sur les Type Hints et les modèles Pydantic.",
+          "est_correcte": true
+        },
+        {
+          "texte": "Il faut installer une extension externe complexe pour le générer.",
+          "est_correcte": false
+        }
+      ]
+    },
+    {
+      "texte": "Par défaut, à quelle URL locale peut-on consulter la documentation interactive générée par FastAPI ?",
+      "type": "unique",
+      "indice": null,
+      "options": [
+        {
+          "texte": "http://127.0.0.1:8000/api",
+          "est_correcte": false
+        },
+        {
+          "texte": "http://127.0.0.1:8000/docs",
+          "est_correcte": true
+        },
+        {
+          "texte": "http://127.0.0.1:8000/swagger",
+          "est_correcte": false
+        }
+      ]
+    }
+  ]
+}
