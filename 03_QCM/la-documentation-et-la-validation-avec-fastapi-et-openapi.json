@@ -1,0 +1,144 @@
+{
+  "titre": "La documentation et la validation avec FastAPI et OpenAPI",
+  "description": "Ce questionnaire évalue votre compréhension des mécanismes de génération automatique de documentation, du rôle de Pydantic, des Type Hints, et des interfaces comme Swagger UI et ReDoc dans FastAPI.",
+  "questions": [
+    {
+      "texte": "Quel est l'enchaînement correct des éléments permettant d'aboutir à la génération de la spécification OpenAPI et des interfaces utilisateur associées ?",
+      "type": "unique",
+      "indice": "FastAPI utilise d'abord le typage Python et Pydantic pour analyser le code, génère ensuite le contrat OpenAPI brut au format JSON, qui alimente enfin les interfaces visuelles.",
+      "options": [
+        {
+          "texte": "Code Python → Swagger UI → Pydantic → OpenAPI JSON → ReDoc",
+          "est_correcte": false
+        },
+        {
+          "texte": "Code Python → Type Hints → FastAPI → Pydantic → OpenAPI JSON → Swagger UI / ReDoc",
+          "est_correcte": true
+        },
+        {
+          "texte": "OpenAPI JSON → Code Python → Type Hints → Pydantic → Swagger UI / ReDoc",
+          "est_correcte": false
+        },
+        {
+          "texte": "Pydantic → Swagger UI → Code Python → Type Hints → OpenAPI JSON",
+          "est_correcte": false
+        }
+      ]
+    },
+    {
+      "texte": "Quelles associations entre les routes par défaut de FastAPI et leur rôle sont correctes ?",
+      "type": "multiple",
+      "indice": "Il existe trois routes clés de documentation générées par FastAPI, l'une brute en JSON et deux interfaces graphiques différentes.",
+      "options": [
+        {
+          "texte": "`/docs` et `/redoc` servent uniquement à stocker l'historique des requêtes SQL de la base de données.",
+          "est_correcte": false
+        },
+        {
+          "texte": "`/openapi.json` fournit le contrat brut de l'API sous un format lisible par des machines.",
+          "est_correcte": true
+        },
+        {
+          "texte": "`/docs` correspond à l'interface Swagger UI permettant de visualiser et de tester interactivement l'API.",
+          "est_correcte": true
+        },
+        {
+          "texte": "`/redoc` fournit une interface de documentation alternative.",
+          "est_correcte": true
+        }
+      ]
+    },
+    {
+      "texte": "Pourquoi est-il recommandé de séparer le modèle de création (comme `PlayerCreate`) du modèle complet (comme `Player`) ?",
+      "type": "unique",
+      "indice": "Pensez au rôle de la génération automatique d'ID par la base de données ou le serveur.",
+      "options": [
+        {
+          "texte": "Parce que les modèles de création ne supportent pas les contraintes de validation de champs.",
+          "est_correcte": false
+        },
+        {
+          "texte": "Parce que l'identifiant (`id`) est généré par le serveur et ne doit pas être envoyé par le client lors de la création.",
+          "est_correcte": true
+        },
+        {
+          "texte": "Parce que Pydantic ne peut pas valider des chaînes de caractères et des entiers dans le même modèle.",
+          "est_correcte": false
+        },
+        {
+          "texte": "Pour obliger le client à générer lui-même l'identifiant unique avant d'envoyer la requête.",
+          "est_correcte": false
+        }
+      ]
+    },
+    {
+      "texte": "Quel rôle crucial jouent les Type Hints dans le fonctionnement de FastAPI ?",
+      "type": "unique",
+      "indice": "Dans FastAPI, le typage statique de Python est exploité dynamiquement pour concevoir le contrat de l'API.",
+      "options": [
+        {
+          "texte": "Ils permettent à FastAPI de comprendre automatiquement les types attendus afin de valider les requêtes et de générer le contrat OpenAPI.",
+          "est_correcte": true
+        },
+        {
+          "texte": "Ils servent à remplacer complètement l'usage de Pydantic pour la définition des modèles complexes.",
+          "est_correcte": false
+        },
+        {
+          "texte": "Ils permettent de compiler le code Python directement en code machine C++ pour accélérer les performances.",
+          "est_correcte": false
+        },
+        {
+          "texte": "Ils servent uniquement de commentaires pour les développeurs, sans aucun impact fonctionnel.",
+          "est_correcte": false
+        }
+      ]
+    },
+    {
+      "texte": "Quelle est la distinction fondamentale entre OpenAPI et Swagger UI ?",
+      "type": "unique",
+      "indice": "L'un est un standard de description textuel (le contrat), l'autre est l'outil visuel qui l'exploite pour le rendre interactif.",
+      "options": [
+        {
+          "texte": "OpenAPI est la spécification décrivant l'API, tandis que Swagger UI est une interface graphique permettant de visualiser et tester cette description.",
+          "est_correcte": true
+        },
+        {
+          "texte": "OpenAPI est le serveur web de production tandis que Swagger UI est le serveur de test local.",
+          "est_correcte": false
+        },
+        {
+          "texte": "Il n'y a aucune différence, ce sont deux appellations strictement identiques pour désigner le format JSON.",
+          "est_correcte": false
+        },
+        {
+          "texte": "Swagger UI génère le code Python et OpenAPI se charge uniquement de le formater en JSON.",
+          "est_correcte": false
+        }
+      ]
+    },
+    {
+      "texte": "Lorsque vous définissez des contraintes sur vos modèles Pydantic via `Field` (ex: `min_length=3`, `ge=0`), qu'est-ce qui est géré automatiquement par le framework ?",
+      "type": "multiple",
+      "indice": "Grâce au modèle unique, FastAPI fait le lien entre la validation d'exécution et les schémas de documentation.",
+      "options": [
+        {
+          "texte": "La spécification automatique de ces contraintes dans le schéma `openapi.json`.",
+          "est_correcte": true
+        },
+        {
+          "texte": "La création et la configuration automatique des tables correspondantes dans la base de données.",
+          "est_correcte": false
+        },
+        {
+          "texte": "La validation des données entrantes lors des requêtes HTTP.",
+          "est_correcte": true
+        },
+        {
+          "texte": "L'affichage informatif de ces limites (longueur minimale, valeur minimale) directement dans Swagger UI.",
+          "est_correcte": true
+        }
+      ]
+    }
+  ]
+}

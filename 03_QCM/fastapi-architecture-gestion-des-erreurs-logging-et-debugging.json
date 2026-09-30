@@ -1,0 +1,236 @@
+{
+  "titre": "FastAPI : Architecture, Gestion des erreurs, Logging et Debugging",
+  "description": "Ce questionnaire évalue vos connaissances sur la structuration d'une application FastAPI, la séparation des responsabilités (Routers, Services, Modèles), la gestion des erreurs HTTP, l'utilisation des logs et les méthodologies de debugging.",
+  "questions": [
+    {
+      "texte": "Quelle est la responsabilité principale de la couche `routers/` (les routeurs) ?",
+      "type": "unique",
+      "indice": "Les routeurs font le pont entre le protocole HTTP et la logique interne de votre application.",
+      "options": [
+        {
+          "texte": "Implémenter les règles de comparaison métier et les requêtes SQL complexes.",
+          "est_correcte": false
+        },
+        {
+          "texte": "Définir la structure brute des tables dans la base de données persistante.",
+          "est_correcte": false
+        },
+        {
+          "texte": "Gérer uniquement l'écriture et la rotation des fichiers de logs.",
+          "est_correcte": false
+        },
+        {
+          "texte": "Gérer la communication HTTP et exposer les endpoints de l'API.",
+          "est_correcte": true
+        }
+      ]
+    },
+    {
+      "texte": "Quels sont les avantages de l'utilisation d'un `logger` (avec le module `logging` de Python) par rapport à un simple `print()` ?",
+      "type": "multiple",
+      "indice": "Pensez à la flexibilité de configuration et à la catégorisation des messages en production.",
+      "options": [
+        {
+          "texte": "La validation automatique en amont des types de données envoyés par le client.",
+          "est_correcte": false
+        },
+        {
+          "texte": "La génération automatique d'une documentation Swagger interactive.",
+          "est_correcte": false
+        },
+        {
+          "texte": "La possibilité d'adapter la sortie (console, fichier) et le comportement selon l'environnement sans modifier le code.",
+          "est_correcte": true
+        },
+        {
+          "texte": "La possibilité de filtrer les messages selon leur niveau de sévérité (DEBUG, INFO, WARNING, ERROR).",
+          "est_correcte": true
+        }
+      ]
+    },
+    {
+      "texte": "Quelles étapes font partie d'une démarche systématique et rigoureuse de debugging pour une API ?",
+      "type": "multiple",
+      "indice": "Un debugging efficace repose sur l'observation des faits (logs, codes HTTP, messages d'erreur).",
+      "options": [
+        {
+          "texte": "Modifier aléatoirement des portions de code métier jusqu'à obtenir un comportement correct.",
+          "est_correcte": false
+        },
+        {
+          "texte": "Consulter les fichiers de logs de l'application pour remonter le fil des événements.",
+          "est_correcte": true
+        },
+        {
+          "texte": "Masquer toutes les exceptions avec un bloc `try/except` global retournant une erreur générique.",
+          "est_correcte": false
+        },
+        {
+          "texte": "Identifier et analyser le code de statut HTTP de la réponse reçue.",
+          "est_correcte": true
+        }
+      ]
+    },
+    {
+      "texte": "Dans une architecture FastAPI structurée en plusieurs modules, quel est le rôle principal du fichier `app/main.py` ?",
+      "type": "unique",
+      "indice": "Pensez aux tâches de configuration globale au démarrage de l'application.",
+      "options": [
+        {
+          "texte": "Définir l'ensemble des règles métier et des algorithmes de calcul.",
+          "est_correcte": false
+        },
+        {
+          "texte": "Intercepter directement les requêtes HTTP pour valider les modèles Pydantic.",
+          "est_correcte": false
+        },
+        {
+          "texte": "Créer l'application FastAPI, enregistrer les routers et configurer l'application.",
+          "est_correcte": true
+        },
+        {
+          "texte": "Stocker les données de l'application en mémoire vive.",
+          "est_correcte": false
+        }
+      ]
+    },
+    {
+      "texte": "Quelles opérations relèvent typiquement des responsabilités de la couche `services/` ?",
+      "type": "multiple",
+      "indice": "La couche service doit rester indépendante du framework HTTP (pas de dépendance directe aux codes HTTP).",
+      "options": [
+        {
+          "texte": "Manipuler et mettre à jour les structures de données en mémoire (ou appeler le gestionnaire de données).",
+          "est_correcte": true
+        },
+        {
+          "texte": "Configurer les paramètres d'initialisation de l'application FastAPI principale.",
+          "est_correcte": false
+        },
+        {
+          "texte": "Lever des exceptions de type `HTTPException` avec un code `404` directement.",
+          "est_correcte": false
+        },
+        {
+          "texte": "Exécuter des fonctions de logique métier comme la création, la modification ou la recherche de données.",
+          "est_correcte": true
+        }
+      ]
+    },
+    {
+      "texte": "Lors de la définition d'un routeur via `APIRouter(prefix='/players', tags=['players'])`, à quoi servent les paramètres `prefix` et `tags` ?",
+      "type": "unique",
+      "indice": "Ces options facilitent l'écriture du code des routes et la lisibilité de la documentation générée automatiquement par FastAPI.",
+      "options": [
+        {
+          "texte": "Le `prefix` sert à nommer la base de données, et les `tags` filtrent automatiquement les logs applicatifs.",
+          "est_correcte": false
+        },
+        {
+          "texte": "Le `prefix` évite de répéter le chemin `/players` dans chaque route du fichier, et les `tags` regroupent les endpoints associés dans la documentation Swagger.",
+          "est_correcte": true
+        },
+        {
+          "texte": "Le `prefix` force l'utilisation d'une connexion sécurisée, et les `tags` désignent les rôles d'utilisateurs autorisés.",
+          "est_correcte": false
+        },
+        {
+          "texte": "Le `prefix` limite le nombre de requêtes par seconde, et les `tags` décrivent les types de données Pydantic.",
+          "est_correcte": false
+        }
+      ]
+    },
+    {
+      "texte": "Dans l'architecture cible à trois niveaux (Router, Service, Repository), quelle est la responsabilité spécifique du Repository ?",
+      "type": "unique",
+      "indice": "Le repository s'intercale entre le service métier et la base de données.",
+      "options": [
+        {
+          "texte": "Valider le format des données entrantes envoyées par le client via HTTP.",
+          "est_correcte": false
+        },
+        {
+          "texte": "Définir les règles de sécurité et de chiffrement des connexions réseau.",
+          "est_correcte": false
+        },
+        {
+          "texte": "Gérer l'accès physique aux données, par exemple en formulant les requêtes vers la base de données.",
+          "est_correcte": true
+        },
+        {
+          "texte": "Exposer l'interface utilisateur web et la documentation Swagger de l'API.",
+          "est_correcte": false
+        }
+      ]
+    },
+    {
+      "texte": "Pourquoi est-il recommandé d'avoir deux modèles distincts comme `PlayerCreate` et `Player` ?",
+      "type": "unique",
+      "indice": "L'identifiant d'une ressource n'est généralement pas fourni par le client lors de la phase de création.",
+      "options": [
+        {
+          "texte": "Pour séparer les données fournies par le client lors de la création (sans identifiant) des données complètes renvoyées par l'application (avec identifiant généré).",
+          "est_correcte": true
+        },
+        {
+          "texte": "Parce que FastAPI ne permet pas d'utiliser le même modèle pour les requêtes de type GET et de type POST.",
+          "est_correcte": false
+        },
+        {
+          "texte": "Pour pouvoir modifier les types de données d'une requête sans avoir à redémarrer le serveur de développement.",
+          "est_correcte": false
+        },
+        {
+          "texte": "Pour permettre de stocker les données dans deux bases de données différentes simultanément.",
+          "est_correcte": false
+        }
+      ]
+    },
+    {
+      "texte": "Comment la couche `routers` doit-elle réagir lorsque la couche `services` lui renvoie `None` lors de la recherche d'une ressource ?",
+      "type": "unique",
+      "indice": "C'est au routeur de traduire l'absence de donnée métier en un statut HTTP compréhensible par le client.",
+      "options": [
+        {
+          "texte": "Elle doit retourner le code `200 OK` avec une liste vide pour ne pas perturber le client.",
+          "est_correcte": false
+        },
+        {
+          "texte": "Elle doit automatiquement redémarrer le serveur de développement.",
+          "est_correcte": false
+        },
+        {
+          "texte": "Elle doit lever une `HTTPException` avec un code approprié, par exemple `404 Not Found`.",
+          "est_correcte": true
+        },
+        {
+          "texte": "Elle doit lever une exception Python de type `ZeroDivisionError` pour forcer un crash.",
+          "est_correcte": false
+        }
+      ]
+    },
+    {
+      "texte": "À quelle famille de codes de statut HTTP appartient une erreur due à une requête incorrecte ou mal formée envoyée par le client ?",
+      "type": "unique",
+      "indice": "Les erreurs causées par le client commencent par un chiffre spécifique.",
+      "options": [
+        {
+          "texte": "La famille des codes `4xx` (comme `404` ou `422`).",
+          "est_correcte": true
+        },
+        {
+          "texte": "La famille des codes `3xx` de redirection.",
+          "est_correcte": false
+        },
+        {
+          "texte": "La famille des codes `5xx` (comme `500`).",
+          "est_correcte": false
+        },
+        {
+          "texte": "La famille des codes `2xx` (comme `200` ou `201`).",
+          "est_correcte": false
+        }
+      ]
+    }
+  ]
+}

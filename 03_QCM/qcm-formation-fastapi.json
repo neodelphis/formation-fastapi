@@ -1,0 +1,438 @@
+{
+  "titre": "QCM formation FastAPI",
+  "description": "Validation des acquis sur FastAPI.",
+  "questions": [
+    {
+      "texte": "Que signifie l'acronyme API ?",
+      "type": "unique",
+      "indice": "C'est une interface pour la programmation d'applications.",
+      "options": [
+        {
+          "texte": "Applied Python Interface",
+          "est_correcte": false
+        },
+        {
+          "texte": "Advanced Programming Integration",
+          "est_correcte": false
+        },
+        {
+          "texte": "Application Programming Interface",
+          "est_correcte": true
+        }
+      ]
+    },
+    {
+      "texte": "Quelles sont les méthodes HTTP qui correspondent respectivement aux actions CRUD : Créer et Supprimer ?",
+      "type": "multiple",
+      "indice": null,
+      "options": [
+        {
+          "texte": "POST",
+          "est_correcte": true
+        },
+        {
+          "texte": "PUT",
+          "est_correcte": false
+        },
+        {
+          "texte": "DELETE",
+          "est_correcte": true
+        },
+        {
+          "texte": "GET",
+          "est_correcte": false
+        }
+      ]
+    },
+    {
+      "texte": "Sur quelles technologies et concepts le framework FastAPI s'appuie-t-il fortement ?",
+      "type": "multiple",
+      "indice": null,
+      "options": [
+        {
+          "texte": "Les Type Hints Python",
+          "est_correcte": true
+        },
+        {
+          "texte": "Django",
+          "est_correcte": false
+        },
+        {
+          "texte": "Pydantic",
+          "est_correcte": true
+        },
+        {
+          "texte": "OpenAPI",
+          "est_correcte": true
+        }
+      ]
+    },
+    {
+      "texte": "Quelle bibliothèque intégrée à FastAPI permet de définir des modèles de données en Python ?",
+      "type": "unique",
+      "indice": null,
+      "options": [
+        {
+          "texte": "SQLAlchemy",
+          "est_correcte": false
+        },
+        {
+          "texte": "Pydantic",
+          "est_correcte": true
+        },
+        {
+          "texte": "Requests",
+          "est_correcte": false
+        }
+      ]
+    },
+    {
+      "texte": "Comment définit-on correctement une route avec FastAPI pour récupérer un joueur spécifique via son identifiant ?",
+      "type": "unique",
+      "indice": "Observez la syntaxe des décorateurs en Python et des paramètres de chemin dans FastAPI : \n```python\n@app.get(\"/players/{player_id}\")\n```",
+      "options": [
+        {
+          "texte": "```python\n@app.get(\"/players/{player_id}\")\n```",
+          "est_correcte": true
+        },
+        {
+          "texte": "```python\n@app.get(\"/players/player_id\")\n```",
+          "est_correcte": false
+        },
+        {
+          "texte": "```python\n@app.post(\"/players/{player_id}\")\n```",
+          "est_correcte": false
+        }
+      ]
+    },
+    {
+      "texte": "Contrairement à Python classique, comment FastAPI utilise-t-il les annotations de type (Type Hints) ?",
+      "type": "multiple",
+      "indice": "FastAPI ne se contente pas d'informer le développeur, il agit activement sur les données reçues.",
+      "options": [
+        {
+          "texte": "Il s'en sert uniquement comme simple indication pour le développeur.",
+          "est_correcte": false
+        },
+        {
+          "texte": "Il les utilise pour analyser la requête et convertir les données.",
+          "est_correcte": true
+        },
+        {
+          "texte": "Il s'en sert pour valider les données et rejeter la requête si nécessaire.",
+          "est_correcte": true
+        },
+        {
+          "texte": "Il les utilise pour générer la documentation automatiquement.",
+          "est_correcte": true
+        }
+      ]
+    },
+    {
+      "texte": "Comment définit-on un modèle Pydantic pour structurer et valider les données entrantes ?",
+      "type": "unique",
+      "indice": "Il faut hériter d'une classe spécifique fournie par la bibliothèque.",
+      "options": [
+        {
+          "texte": "En créant une classe qui hérite de `BaseModel`.",
+          "est_correcte": true
+        },
+        {
+          "texte": "En créant un dictionnaire Python standard.",
+          "est_correcte": false
+        },
+        {
+          "texte": "En utilisant le décorateur `@app.model`.",
+          "est_correcte": false
+        }
+      ]
+    },
+    {
+      "texte": "Comment peut-on ajouter des contraintes de validation supplémentaires (comme une longueur minimale ou une valeur minimale) à un champ dans un modèle Pydantic ?",
+      "type": "unique",
+      "indice": null,
+      "options": [
+        {
+          "texte": "En utilisant la fonction `Field` de Pydantic.",
+          "est_correcte": true
+        },
+        {
+          "texte": "En écrivant des conditions `if/else` directement dans la route FastAPI.",
+          "est_correcte": false
+        },
+        {
+          "texte": "En utilisant le mot-clé `constraint` de Python.",
+          "est_correcte": false
+        }
+      ]
+    },
+    {
+      "texte": "Comment FastAPI génère-t-il le contrat de l'API (le standard OpenAPI) ?",
+      "type": "unique",
+      "indice": null,
+      "options": [
+        {
+          "texte": "Le développeur doit l'écrire manuellement dans un fichier texte.",
+          "est_correcte": false
+        },
+        {
+          "texte": "Automatiquement, en se basant sur les Type Hints et les modèles Pydantic.",
+          "est_correcte": true
+        },
+        {
+          "texte": "Il faut installer une extension externe complexe pour le générer.",
+          "est_correcte": false
+        }
+      ]
+    },
+    {
+      "texte": "Par défaut, à quelle URL locale peut-on consulter la documentation interactive générée par FastAPI ?",
+      "type": "unique",
+      "indice": null,
+      "options": [
+        {
+          "texte": "http://127.0.0.1:8000/api",
+          "est_correcte": false
+        },
+        {
+          "texte": "http://127.0.0.1:8000/docs",
+          "est_correcte": true
+        },
+        {
+          "texte": "http://127.0.0.1:8000/swagger",
+          "est_correcte": false
+        }
+      ]
+    },
+    {
+      "texte": "Quel est l'enchaînement correct des éléments permettant d'aboutir à la génération de la spécification OpenAPI et des interfaces utilisateur associées ?",
+      "type": "unique",
+      "indice": "FastAPI utilise d'abord le typage Python et Pydantic pour analyser le code, génère ensuite le contrat OpenAPI brut au format JSON, qui alimente enfin les interfaces visuelles.",
+      "options": [
+        {
+          "texte": "Code Python → Swagger UI → Pydantic → OpenAPI JSON → ReDoc",
+          "est_correcte": false
+        },
+        {
+          "texte": "Code Python → Type Hints → FastAPI → Pydantic → OpenAPI JSON → Swagger UI / ReDoc",
+          "est_correcte": true
+        },
+        {
+          "texte": "OpenAPI JSON → Code Python → Type Hints → Pydantic → Swagger UI / ReDoc",
+          "est_correcte": false
+        },
+        {
+          "texte": "Pydantic → Swagger UI → Code Python → Type Hints → OpenAPI JSON",
+          "est_correcte": false
+        }
+      ]
+    },
+    {
+      "texte": "Pourquoi est-il recommandé de séparer le modèle de création (comme `PlayerCreate`) du modèle complet (comme `Player`) ?",
+      "type": "unique",
+      "indice": "Pensez au rôle de la génération automatique d'ID par la base de données ou le serveur.",
+      "options": [
+        {
+          "texte": "Parce que les modèles de création ne supportent pas les contraintes de validation de champs.",
+          "est_correcte": false
+        },
+        {
+          "texte": "Parce que l'identifiant (`id`) est généré par le serveur et ne doit pas être envoyé par le client lors de la création.",
+          "est_correcte": true
+        },
+        {
+          "texte": "Parce que Pydantic ne peut pas valider des chaînes de caractères et des entiers dans le même modèle.",
+          "est_correcte": false
+        },
+        {
+          "texte": "Pour obliger le client à générer lui-même l'identifiant unique avant d'envoyer la requête.",
+          "est_correcte": false
+        }
+      ]
+    },
+    {
+      "texte": "Quel rôle crucial jouent les Type Hints dans le fonctionnement de FastAPI ?",
+      "type": "unique",
+      "indice": "Dans FastAPI, le typage statique de Python est exploité dynamiquement pour concevoir le contrat de l'API.",
+      "options": [
+        {
+          "texte": "Ils permettent à FastAPI de comprendre automatiquement les types attendus afin de valider les requêtes et de générer le contrat OpenAPI.",
+          "est_correcte": true
+        },
+        {
+          "texte": "Ils servent à remplacer complètement l'usage de Pydantic pour la définition des modèles complexes.",
+          "est_correcte": false
+        },
+        {
+          "texte": "Ils permettent de compiler le code Python directement en code machine C++ pour accélérer les performances.",
+          "est_correcte": false
+        },
+        {
+          "texte": "Ils servent uniquement de commentaires pour les développeurs, sans aucun impact fonctionnel.",
+          "est_correcte": false
+        }
+      ]
+    },
+    {
+      "texte": "Quelle est la distinction fondamentale entre OpenAPI et Swagger UI ?",
+      "type": "unique",
+      "indice": "L'un est un standard de description textuel (le contrat), l'autre est l'outil visuel qui l'exploite pour le rendre interactif.",
+      "options": [
+        {
+          "texte": "OpenAPI est la spécification décrivant l'API, tandis que Swagger UI est une interface graphique permettant de visualiser et tester cette description.",
+          "est_correcte": true
+        },
+        {
+          "texte": "OpenAPI est le serveur web de production tandis que Swagger UI est le serveur de test local.",
+          "est_correcte": false
+        },
+        {
+          "texte": "Il n'y a aucune différence, ce sont deux appellations strictement identiques pour désigner le format JSON.",
+          "est_correcte": false
+        },
+        {
+          "texte": "Swagger UI génère le code Python et OpenAPI se charge uniquement de le formater en JSON.",
+          "est_correcte": false
+        }
+      ]
+    },
+    {
+      "texte": "Quelle est la responsabilité principale de la couche `routers/` (les routeurs) ?",
+      "type": "unique",
+      "indice": "Les routeurs font le pont entre le protocole HTTP et la logique interne de votre application.",
+      "options": [
+        {
+          "texte": "Implémenter les règles de comparaison métier et les requêtes SQL complexes.",
+          "est_correcte": false
+        },
+        {
+          "texte": "Définir la structure brute des tables dans la base de données persistante.",
+          "est_correcte": false
+        },
+        {
+          "texte": "Gérer uniquement l'écriture et la rotation des fichiers de logs.",
+          "est_correcte": false
+        },
+        {
+          "texte": "Gérer la communication HTTP et exposer les endpoints de l'API.",
+          "est_correcte": true
+        }
+      ]
+    },
+    {
+      "texte": "Quels sont les avantages de l'utilisation d'un `logger` (avec le module `logging` de Python) par rapport à un simple `print()` ?",
+      "type": "multiple",
+      "indice": "Pensez à la flexibilité de configuration et à la catégorisation des messages en production.",
+      "options": [
+        {
+          "texte": "La validation automatique en amont des types de données envoyés par le client.",
+          "est_correcte": false
+        },
+        {
+          "texte": "La génération automatique d'une documentation Swagger interactive.",
+          "est_correcte": false
+        },
+        {
+          "texte": "La possibilité d'adapter la sortie (console, fichier) et le comportement selon l'environnement sans modifier le code.",
+          "est_correcte": true
+        },
+        {
+          "texte": "La possibilité de filtrer les messages selon leur niveau de sévérité (DEBUG, INFO, WARNING, ERROR).",
+          "est_correcte": true
+        }
+      ]
+    },
+    {
+      "texte": "Quelles étapes font partie d'une démarche systématique et rigoureuse de debugging pour une API ?",
+      "type": "multiple",
+      "indice": "Un debugging efficace repose sur l'observation des faits (logs, codes HTTP, messages d'erreur).",
+      "options": [
+        {
+          "texte": "Modifier aléatoirement des portions de code métier jusqu'à obtenir un comportement correct.",
+          "est_correcte": false
+        },
+        {
+          "texte": "Consulter les fichiers de logs de l'application pour remonter le fil des événements.",
+          "est_correcte": true
+        },
+        {
+          "texte": "Masquer toutes les exceptions avec un bloc `try/except` global retournant une erreur générique.",
+          "est_correcte": false
+        },
+        {
+          "texte": "Identifier et analyser le code de statut HTTP de la réponse reçue.",
+          "est_correcte": true
+        }
+      ]
+    },
+    {
+      "texte": "Dans une architecture FastAPI structurée en plusieurs modules, quel est le rôle principal du fichier `app/main.py` ?",
+      "type": "unique",
+      "indice": "Pensez aux tâches de configuration globale au démarrage de l'application.",
+      "options": [
+        {
+          "texte": "Définir l'ensemble des règles métier et des algorithmes de calcul.",
+          "est_correcte": false
+        },
+        {
+          "texte": "Intercepter directement les requêtes HTTP pour valider les modèles Pydantic.",
+          "est_correcte": false
+        },
+        {
+          "texte": "Créer l'application FastAPI, enregistrer les routers et configurer l'application.",
+          "est_correcte": true
+        },
+        {
+          "texte": "Stocker les données de l'application en mémoire vive.",
+          "est_correcte": false
+        }
+      ]
+    },
+    {
+      "texte": "Quelles opérations relèvent typiquement des responsabilités de la couche `services/` ?",
+      "type": "multiple",
+      "indice": "La couche service doit rester indépendante du framework HTTP (pas de dépendance directe aux codes HTTP).",
+      "options": [
+        {
+          "texte": "Manipuler et mettre à jour les structures de données en mémoire (ou appeler le gestionnaire de données).",
+          "est_correcte": true
+        },
+        {
+          "texte": "Configurer les paramètres d'initialisation de l'application FastAPI principale.",
+          "est_correcte": false
+        },
+        {
+          "texte": "Lever des exceptions de type `HTTPException` avec un code `404` directement.",
+          "est_correcte": false
+        },
+        {
+          "texte": "Exécuter des fonctions de logique métier comme la création, la modification ou la recherche de données.",
+          "est_correcte": true
+        }
+      ]
+    },
+    {
+      "texte": "Comment la couche `routers` doit-elle réagir lorsque la couche `services` lui renvoie `None` lors de la recherche d'une ressource ?",
+      "type": "unique",
+      "indice": "C'est au routeur de traduire l'absence de donnée métier en un statut HTTP compréhensible par le client.",
+      "options": [
+        {
+          "texte": "Elle doit retourner le code `200 OK` avec une liste vide pour ne pas perturber le client.",
+          "est_correcte": false
+        },
+        {
+          "texte": "Elle doit automatiquement redémarrer le serveur de développement.",
+          "est_correcte": false
+        },
+        {
+          "texte": "Elle doit lever une `HTTPException` avec un code approprié, par exemple `404 Not Found`.",
+          "est_correcte": true
+        },
+        {
+          "texte": "Elle doit lever une exception Python de type `ZeroDivisionError` pour forcer un crash.",
+          "est_correcte": false
+        }
+      ]
+    }
+  ]
+}
