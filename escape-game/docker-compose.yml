@@ -1,0 +1,50 @@
+services:
+  # --------------------------------------------------------------- #
+  # Backend FastAPI — Python 3.12 + Uvicorn
+  # --------------------------------------------------------------- #
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: digitalescape-backend
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    environment:
+      PYTHONUNBUFFERED: "1"
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/health').read()"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+    networks:
+      - digitalescape-net
+
+  # --------------------------------------------------------------- #
+  # Frontend React (Vite) — nginx sert le build statique
+  # Le nginx reverse-proxy /api/* vers le backend.
+  # --------------------------------------------------------------- #
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: digitalescape-frontend
+    restart: unless-stopped
+    ports:
+      - "8080:80"
+    depends_on:
+      backend:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "wget", "-q", "--spider", "http://127.0.0.1/"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 5s
+    networks:
+      - digitalescape-net
+
+networks:
+  digitalescape-net:
+    driver: bridge
